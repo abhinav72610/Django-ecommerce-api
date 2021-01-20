@@ -45,3 +45,18 @@ class ProductSerializer(serializers.ModelSerializer):
             'date_created'
         )
         model = Product
+
+   
+class UserSerializer(serializers.ModelSerializer):
+    books = serializers.PrimaryKeyRelatedField(many=True, queryset=Book.objects.all())
+    products = serializers.PrimaryKeyRelatedField(many=True, queryset=Product.objects.all())
+
+    class Meta:
+        model = User
+        fields = (
+            'id',
+            'username',
+            'email',
+            'books',
+            'products',
+        )
