@@ -49,3 +49,12 @@ class DetailUser(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (permissions.IsAuthenticated,)
     queryset = User.objects.all()
     serializer_class = UserSerializer
+class ListCart(generics.ListCreateAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
+
+class DetailCart(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (permissions.IsAuthenticated,)
+    queryset = Cart.objects.all()
+    serializer_class = CartSerializer
