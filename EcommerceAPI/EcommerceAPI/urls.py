@@ -21,4 +21,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v1/',include('DjangoAPIapp.urls')),
     path('api/v1/auth/auth-token',obtain_auth_token,name='obtain_auth-token')
+    path('auth/register/', RegistrationAPIView.as_view(), name='register'),
+    path('auth/login/', TokenObtainPairView.as_view(), name='login'),
+    path('auth/refresh-token', TokenRefreshView.as_view(), name='refreshtoken'),
+
 ]
